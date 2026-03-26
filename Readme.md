@@ -48,4 +48,4 @@ for refrence use :- [Medium](https://engineeringdigest.medium.com/multithreading
     The office manager (operating system) assigns different employees (processes) to work on different projects (applications) simultaneously. Each employee works on a different project independently.
     Within a single project (application), a team (process) of employees (threads) works on different parts of project at the same time, collaborating and sharing resources.
 
-    
+    more on medium
