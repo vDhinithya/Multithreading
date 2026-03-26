@@ -9,10 +9,10 @@ public class Test {
         System.out.println(Thread.currentThread().getName());
 
         // creating the object of thread class
-        World world = new World();
-        // world.start();      // this is a thread which is used with "extend thread"
+        World world = new World();       // NEW state of the thread
+        // world.start();   RUNNABLE state   // this is a thread which is used with "extend thread"
         Thread t1 = new Thread(world);
-        t1.start();            // while implementing the Runnable interface
+        t1.start();         //RUNNABLE state  // while implementing the Runnable interface
 
         for (int i = 0; i < 500; i++) {
             System.out.println(Thread.currentThread().getName());  /*this in main thread*/
