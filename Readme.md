@@ -1,4 +1,6 @@
-    for refrence use :- [Medium](https://engineeringdigest.medium.com/multithreading-in-java-39f34724bbf6)
+for refrence use :- [Medium](https://engineeringdigest.medium.com/multithreading-in-java-39f34724bbf6)
+
+
     CPU :- CPU often referred to as the brain of the computer, is responsible for executing instructions from programs. It performs basic arithmetic, logic, control, and I/O operations specified by instrunctions.
     CORE :- This is the main part where operations are performed. Core is individual processing unit within a CPU. Modern CPU can have multiple cores, allowing them to perform multiple tasks simultaneously.
            A quad-core processor has four cores, allowing it to perform 4 tasks simultaneously, i.e. web browsing, music player, download manager, system update in background.
