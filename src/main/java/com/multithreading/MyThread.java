@@ -1,25 +1,52 @@
 package com.multithreading;
 
 public class MyThread extends Thread{
+//    @Override
+//    public void run() {
+//
+//
+//            try {
+//                Thread.sleep(5000);
+//            } catch (InterruptedException e) {
+//                throw new RuntimeException(e);
+//            }
+//
+//        System.out.println("Thread is running ...");
+//
+//    }
+
+    public MyThread (String name){
+        super(name);
+    }
+
     @Override
     public void run() {
-        System.out.println("RUNNING STATE");
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            System.out.println(e);
+        for (int i = 0; i < 5; i++) {
+            String a = "";
+            for (int j = 0; j < 10000; j++) {
+                a += "a";
+            }
+            System.out.println(Thread.currentThread().getName() + " - Priority: " + Thread.currentThread().getPriority() + " - count:" + i);
+            try {
+                Thread.sleep(100);
+            } catch (Exception e) {
+
+            }
         }
     }
 
     public static void main(String[] args) throws InterruptedException {
-        MyThread t1 = new MyThread();
-        System.out.println(t1.getState());
-        t1.start();
-        System.out.println(t1.getState());  // in java RUNNABLE used to show either the thread is ready to run or currently running
-        System.out.println(Thread.currentThread().getState()); // it should show running but java treat running and runnable same
-        Thread.sleep(100); // pausing the main thread so that the other thread can run
-        System.out.println(t1.getState());
-        t1.join();  // main method will wait for t1 to finish
-        System.out.println(t1.getState());
+        MyThread l = new MyThread("Low Priority");
+        MyThread m = new MyThread("Mid priority");
+        MyThread h = new MyThread("High Priority");
+        l.setPriority(Thread.MIN_PRIORITY);
+        m.setPriority(Thread.NORM_PRIORITY);
+        h.setPriority(Thread.MAX_PRIORITY);
+        l.start();
+        m.start();
+        h.start();
+        
     }
 }
+
+// start run sleep join setPriority

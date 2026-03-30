@@ -2,6 +2,10 @@ package com.multithreading;
 /*
 *  when execution of program starts, its thread also starts (main thread)
    to create a new Thread in java, it can be done by either extend Thread class or implement Runnable interface
+
+   Thread vs runnable :- while you already using inheritance, a class which extends to another class
+                         the option left is implement the runnable interface
+                         *
 * */
 public class Test {
     public static void main(String[] args) {
