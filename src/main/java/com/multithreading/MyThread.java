@@ -2,25 +2,25 @@ package com.multithreading;
 
 public class MyThread extends Thread{
 
-    public MyThread(String name){
-        super(name);
-    }
+
     @Override
     public void run() {
-        for (int i = 0; i < 5; i++) {
-            System.out.println(MyThread.currentThread().getName() + " is running");
-            Thread.yield(); // this says hint to give chance to the other tthread too
+        while (true){
+            System.out.println("Understanding deamon method");  // user thread, this is user thread who do the actual work
         }
     }
 
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args)  {
+        MyThread myThread = new MyThread();
+        myThread.setDaemon(true);
+        myThread.start();
+        System.out.println("Main thread ending its working");
 
-        MyThread t1 = new MyThread("1st thread");
-        MyThread t2 = new MyThread("2nnd thread");
-
-        t1.start();
-        t2.start();
+        /* how it worked,
+                the main thread stated, then execution goes to the myThread, there it was set to daemon
+                since it was set to daemon, JVM thinks this it background process so it is not necesary to complete its execution and hence the execution stopped here
+        * */
     }
 }
 
-// start run sleep join setPriority interrupt
+// start run sleep join setPriority interrupt yield daemon( threads which run in background)
