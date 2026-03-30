@@ -9,19 +9,24 @@ package com.multithreading;
 * */
 public class Test {
     public static void main(String[] args) {
-        System.out.println("Hello there ");
-        System.out.println(Thread.currentThread().getName());
+        Counter counter = new Counter();
+        MyThread t1 = new MyThread(counter);
+        MyThread t2 = new MyThread(counter);
 
-        // creating the object of thread class
-        World world = new World();       // NEW state of the thread
-        // world.start();   RUNNABLE state   // this is a thread which is used with "extend thread"
-        Thread t1 = new Thread(world);
-        t1.start();         //RUNNABLE state  // while implementing the Runnable interface
+        t1.start();
+        t2.start();
 
-        for (int i = 0; i < 500; i++) {
-            System.out.println(Thread.currentThread().getName());  /*this in main thread*/
-            // execution of both threads will be in random order
+        try{
+            t1.join();
+            t2.join();
+        }catch (Exception e){
 
         }
+        System.out.println(counter.getCount());
+    // there are two threads t1 and t2 having the common resource/object COUNTER
+
+    // while running the program, we should be expecting the counter to be 2000, as both threads will run for 1000 times and that too for same object
+    // but it may or may not be because we are sharing the same object, so at the same moment both threads will update/access the same method/data
+    // this can be solved using the "synchronized" keyword to that method
     }
 }
